@@ -11,6 +11,11 @@ and exp = IdExp of id
 | OpExp of exp * binop * exp
 | EseqExp of stm * exp
 
+(*
+a := 5+3
+b := (print(a, a-1, a); 10*a)
+print(b, a*b, (b := -1+a; b*b), b)
+*)
 val prog = 
     CompoundStm(AssignStm("a", OpExp(NumExp 5, Plus, NumExp 3)),
         CompoundStm(AssignStm("b",
@@ -26,6 +31,14 @@ val prog =
                 IdExp "b"
             ]))
 
+(*
+Write an ML function (maxargs : stm->int) that tells the
+maximum n umber of arguments of any print statement within
+any subexpression of a given statement.
+
+Remember that print statements can contain expressions that
+contain other print statements.
+*)
 fun maxargs (s: stm) : int =
         let
             fun maxargs_exp (e: exp) =
@@ -42,10 +55,22 @@ fun maxargs (s: stm) : int =
         end
 ;
 
+(*
+Write an ML function (interp : stm->unit) that "interprets"
+a program in this language. To write in a "functional" style
+- without assignment (:=) or arrays - maintain a list of
+(variable, integer) pairs, and produce new version of this
+list at each AssignStm.
+
+Make two mutually recursive functions interpStm and interpExp.
+Represent a "table", mapping identifiers to the integer
+values assigned to them, as a list of `id x int` pairs.
+*)
 type table = (id * int) list
 fun interp (s: stm) : unit =
         let
             fun lookup (k: id, sym_table: table) : int option =
+                    (* The first occurrence in the list takes precedence over any later occurrence *)
                     case sym_table of [] => NONE
                     | (k', v)::sym_table_tail => if k' = k then SOME v else lookup(k, sym_table_tail)
             fun eval_binop (x: int, b_op: binop, y: int) : int =
