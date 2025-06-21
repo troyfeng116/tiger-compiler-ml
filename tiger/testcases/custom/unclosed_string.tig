@@ -1,0 +1,10 @@
+/*
+This test case contains an unclosed string.
+*/
+
+let
+    var okString := "This string is \"ok\"'"
+    var notOkString := "This string is not ok
+in
+    x"
+end;

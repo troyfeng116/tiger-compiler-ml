@@ -1,0 +1,17 @@
+/*
+This test case tests for 3-digit ASCII string esc sequences.
+*/
+
+let
+    var asciiEscOpenBrack := "\12345abc"    /* open bracket */
+    var asciiEscPipe := "\12445abc"         /* pipe | */
+    var asciiEscCloseBrack := "\12545abc"   /* close bracket */
+    var asciiEscMaxVal := "\25545abc"       /* Tiger ASCII support up to 8-bit? */
+    var asciiEscTwoDigit := "\03545abc"     /* hashtag */
+
+    /* ASCII codes too large should fail */
+    var asciiEscExceedsMax := "\25645abc"
+    var asciiEscWayExceedsMax := "\77945abc"
+in
+    0
+end;

@@ -1,0 +1,10 @@
+/*
+This test case contains a negative integer;
+should be lexed into two tokens.
+*/
+
+let
+    var x := -32
+in
+    x
+end;
