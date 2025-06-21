@@ -1,0 +1,20 @@
+/*
+multiline string using \...\ white-space esc sequence
+
+Any sequence of whitespace characters (spaces, tabs
+newlines, returns, and formfeeds) surrounded by `\`s
+is ignored. This allows string constants to span
+multiple lines by ending and starting each with a
+backslash.
+*/
+
+let
+    var multilineString := "This is a multi-line str\
+
+
+
+
+\ing!"
+in
+    multilineString
+end

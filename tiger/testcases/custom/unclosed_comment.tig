@@ -1,0 +1,10 @@
+/*
+This test case contains an unclosed comment later.
+*/
+
+let
+    var x := 3
+in
+    /* This is a very simple program. *
+    x
+end;

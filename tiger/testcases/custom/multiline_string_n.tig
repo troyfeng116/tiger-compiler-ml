@@ -1,0 +1,15 @@
+/*
+multiline string using \...\ white-space esc sequence
+with evil \n newline literal split
+*/
+
+let
+    var trickyMultilineString := "This is a multi-line stri\
+
+
+
+
+\ng with a weird \"n\"!"
+in
+    multilineString
+end

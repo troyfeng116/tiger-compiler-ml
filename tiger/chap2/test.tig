@@ -1,0 +1,43 @@
+/* a record type and various strings */
+let
+    type  rectype = {name:string, age:int}
+    var rec1:rectype := rectype {name="Nobody", age=1000}
+
+    var newline := "\n"
+    var backslashN := "\\n"
+    var backslashNewline := "\\\n"
+    var backslashTab := "\\\t"
+    var singleWsEsc := "str\ \ing"
+    var mixedWsEsc := "str\      \ing"
+    var mixedNewlineWsEsc := "str\     
+
+
+     \ing"
+    var newlinesInString := "str\
+
+
+\ing!"
+    var wsBeforeAndAfterWsEsc := "str str \     \ ing"
+    var newlineEscNonUnesc := "str\
+
+ing"
+    var basicCtrlSeq := "test\^C"
+    var atCtrlSeq := "test\^@"
+    var multiCtrlSeq := "test\^ABC\^Dtest"
+    var invalidCtrlSeq1 := "test\^1"
+    var invalidCtrlSeqLower := "test\^c"
+    var invalidCtrlSeqUnfinished := "test\^"
+    var asciiEsc1 := "\12345abc"  /* open bracket */
+    var asciiEsc2 := "\12445abc"  /* close bracket */
+    var asciiEscMax := "\25545abc"
+    var asciiEscExceedsMax := "\25645abc"
+    var asciiEscWayExceedsMax := "\77945abc"
+    var asciiEscTwoDigit := "\03545abc"  /* hashtag */
+    var invalidAsciiEsc := "\12c3abc"
+
+    /*var asciiEsc := "\12345abc"
+    var invalidAsciiEsc := "\12c3abc"*/
+in
+    rec1.name := "Somebody \"somebody\"";
+    rec1
+end

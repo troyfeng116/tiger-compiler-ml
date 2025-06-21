@@ -1,0 +1,15 @@
+/*
+multiline string using \...\ white-space esc sequence
+with evil \r carriage return literal
+*/
+
+let
+    var trickyMultilineString := "This is a multi-line st\
+
+
+
+
+\ring with a weird \"r\"!"
+in
+    multilineString
+end

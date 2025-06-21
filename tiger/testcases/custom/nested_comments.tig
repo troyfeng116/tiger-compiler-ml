@@ -1,0 +1,17 @@
+/*
+This test case contains /* several */ nested /*/*comments*/*/.
+*/
+
+let
+    var x := 3
+    /* This will be a /* false alarm. */
+in
+    print("NONE OF THIS IS REAL!");
+    x
+end;
+*/
+in
+    print("THIS IS REAL!");
+    /* This /* is */ real. */
+    x
+end;
